@@ -1,0 +1,24 @@
+{% extends "base.html" %} 
+{% block contenido %}
+
+
+<form>
+ 
+    
+    <div class="mb-3">
+      <label for="disabledTextInput" class="form-label">Pokemon</label>
+      <input type="text" id="Poke" class="form-control" name="pokemon" placeholder="pokemon">
+    </div>
+    <div class="mb-3">
+      <label for="disabledSelect" class="form-label">Disabled select menu</label>
+      <select id="disabledSelect" class="form-select">
+        <option>Disabled select</option>
+      </select>
+    </div>
+ 
+    <button type="submit" class="btn btn-primary">Submit</button>
+  
+</form>
+
+
+{% endblock %}
