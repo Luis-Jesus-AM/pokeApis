@@ -1,13 +1,53 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
+{% block title %}{{ pokemon.name }} - PokeApp{% endblock %}
+
 {% block contenido %}
+  <div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+      <div class="card mb-3 shadow-sm border-0">
+        <div class="row g-0 align-items-center">
 
+          
+          <div class="col-md-4 text-center p-3 bg-white">
+            <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" class="img-fluid" style="max-height: 250px;">
+          </div>
 
- 
-<div class="row">
+          
+          <div class="col-md-8">
+            <div class="card-body">
+              <h2 class="card-title fw-bold">{{ pokemon.name }}</h2>
+              <p class="mb-1"><strong>ID:</strong> {{ pokemon.id }}</p>
+              <p class="mb-1"><strong>Altura:</strong> {{ pokemon.height }} dm</p>
+              <p class="mb-1"><strong>Peso:</strong> {{ pokemon.weight }} hg</p>
 
+              <p class="mb-1"><strong>Tipo(s):</strong>
+                {% for t in pokemon.types %}
+                  <span class="badge bg-primary me-1">{{ t }}</span>
+                {% endfor %}
+              </p>
+
+              <p class="mb-1"><strong>Habilidades:</strong>
+                {% for a in pokemon.abilities %}
+                  <span class="badge bg-success me-1">{{ a }}</span>
+                {% endfor %}
+              </p>
+
+              {% if pokemon.moves %}
+              <p class="mb-1"><strong>Algunos movimientos:</strong>
+                {% for move in pokemon.moves %}
+                  <span class="badge bg-secondary me-1">{{ move }}</span>
+                {% endfor %}
+              </p>
+              {% endif %}
+
+              <div class="mt-3">
+                <a href="{{ url_for('index') }}" class="btn btn-outline-dark">Volver</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
- 
-
-
-
+  </div>
 {% endblock %}

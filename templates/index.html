@@ -1,18 +1,9 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 {% block contenido %}
 
-
-<form>
- 
-    
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Pokemon</label>
-      <input type="text" id="pokemon_name" class="form-control" name="pokemon" placeholder="pokemon">
-    </div>
- 
-    <button type="submit" class="btn btn-primary">Buscar</button>
-  
+<form action="{{ url_for('search_pokemon') }}" method="POST" class="text-center mt-5">
+  <input type="text" name="pokemon_name" id="pokemon_name" placeholder="Nombre del Pokémon" required>
+  <button type="submit">Buscar</button>
 </form>
-
 
 {% endblock %}
